@@ -1,0 +1,54 @@
+scalar DateTime
+
+type DepartmentOutput {
+    departmentId: ID!
+    departmentName: String!
+    departmentCode: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+}
+
+type EmployeeOutput {
+    employeeId: ID!
+    firstName: String!
+    lastName: String!
+    email: String!
+    phoneNumber: String!
+    salary: Float!
+    position: String!
+}
+
+input DepartmentInput {
+    departmentId: ID
+    departmentName: String
+    departmentCode: String
+    createdAt: DateTime
+    updatedAt: DateTime
+}
+
+input EmployeeInput {
+    employeeId: ID
+    firstName: String
+    lastName: String
+    email: String
+    phoneNumber: String
+    salary: Float
+    position: String
+}
+
+type Query {
+    getAllDepartments: [DepartmentOutput]
+    getDepartmentById(departmentId: ID!): DepartmentOutput
+    getAllEmployees: [EmployeeOutput]
+    getAllEmployeesByDepartment(departmentId: ID!): [EmployeeOutput]
+}
+
+type Mutation {
+    addNewDepartment(departmentInput: DepartmentInput!): DepartmentOutput
+    updateDepartmentById(departmentId: ID!, departmentInput: DepartmentInput!): DepartmentOutput
+    deleteDepartmentById(departmentId: ID!): String
+    addNewEmployeeByDepartmentId(departmentId: ID!, employeeInput: EmployeeInput!): EmployeeOutput
+    updateEmployeeByEmployeeId(employeeId: ID!, employeeInput: EmployeeInput!): EmployeeOutput
+    changeEmployeesDepartment(employeeId: ID!, newDepartmentId: ID!): EmployeeOutput
+    deleteEmployeeById(employeeId: ID!): String
+}
