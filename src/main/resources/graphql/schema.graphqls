@@ -1,14 +1,13 @@
-scalar DateTime
-
-type DepartmentOutput {
+type Department {
     departmentId: ID!
     departmentName: String!
     departmentCode: String!
-    createdAt: DateTime
-    updatedAt: DateTime
+    createdAt: String
+    updatedAt: String
+    employees: [Employee!]
 }
 
-type EmployeeOutput {
+type Employee {
     employeeId: ID!
     firstName: String!
     lastName: String!
@@ -16,14 +15,15 @@ type EmployeeOutput {
     phoneNumber: String!
     salary: Float!
     position: String!
+    department: Department!
 }
 
 input DepartmentInput {
     departmentId: ID
     departmentName: String
     departmentCode: String
-    createdAt: DateTime
-    updatedAt: DateTime
+    createdAt: String
+    updatedAt: String
 }
 
 input EmployeeInput {
@@ -36,8 +36,26 @@ input EmployeeInput {
     position: String
 }
 
+type DepartmentOutput {
+    departmentId: ID!
+    departmentName: String!
+    departmentCode: String!
+    createdAt: String
+    updatedAt: String
+}
+
+type EmployeeOutput {
+    employeeId: ID!
+    firstName: String!
+    lastName: String!
+    email: String!
+    phoneNumber: String!
+    salary: Float!
+    position: String!
+}
+
 type Query {
-    getAllDepartments: [DepartmentOutput]
+    getAllDepartment: [DepartmentOutput]
     getDepartmentById(departmentId: ID!): DepartmentOutput
     getAllEmployees: [EmployeeOutput]
     getAllEmployeesByDepartment(departmentId: ID!): [EmployeeOutput]
