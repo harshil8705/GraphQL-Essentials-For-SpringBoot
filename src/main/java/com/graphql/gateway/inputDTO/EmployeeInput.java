@@ -8,7 +8,6 @@ import lombok.*;
 @AllArgsConstructor
 public class EmployeeInput {
 
-    private Long employeeId;
     private String firstName;
     private String lastName;
     private String email;

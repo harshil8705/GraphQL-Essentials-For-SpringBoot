@@ -10,10 +10,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class DepartmentInput {
 
-    private Long departmentId;
     private String departmentName;
     private String departmentCode;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
 
 }

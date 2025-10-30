@@ -1,11 +1,14 @@
 package com.graphql.gateway.outputDTO;
 
+import com.graphql.gateway.entity.Employee;
+import com.graphql.gateway.inputDTO.EmployeeInput;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Builder
@@ -18,5 +21,6 @@ public class DepartmentOutput {
     private String departmentCode;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    private List<EmployeeOutput> employees;
 
 }

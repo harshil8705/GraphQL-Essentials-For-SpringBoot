@@ -1,43 +1,39 @@
-type Department {
-    departmentId: ID!
-    departmentName: String!
-    departmentCode: String!
-    createdAt: String
-    updatedAt: String
-    employees: [Employee!]
-}
-
-type Employee {
-    employeeId: ID!
-    firstName: String!
-    lastName: String!
-    email: String!
-    phoneNumber: String!
-    salary: Float!
-    position: String!
-    department: Department!
-}
+#type Department {
+#    departmentId: ID!
+#    departmentName: String!
+#    departmentCode: String!
+#    createdAt: String
+#    updatedAt: String
+#    employees: [Employee!]
+#}
+#
+#type Employee {
+#    employeeId: ID!
+#    firstName: String!
+#    lastName: String!
+#    email: String!
+#    phoneNumber: String!
+#    salary: Float!
+#    position: String!
+#    department: Department!
+#}
 
 input DepartmentInput {
-    departmentId: ID
     departmentName: String
     departmentCode: String
-    createdAt: String
-    updatedAt: String
 }
 
 input EmployeeInput {
-    employeeId: ID
     firstName: String
     lastName: String
     email: String
     phoneNumber: String
-    salary: Float
+    salary: String
     position: String
 }
 
 type DepartmentOutput {
-    departmentId: ID!
+    departmentId: ID
     departmentName: String!
     departmentCode: String!
     createdAt: String
@@ -45,13 +41,14 @@ type DepartmentOutput {
 }
 
 type EmployeeOutput {
-    employeeId: ID!
+    employeeId: ID
     firstName: String!
     lastName: String!
     email: String!
     phoneNumber: String!
     salary: Float!
     position: String!
+    department: DepartmentOutput!
 }
 
 type Query {

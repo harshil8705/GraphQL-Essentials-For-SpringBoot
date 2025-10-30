@@ -18,5 +18,6 @@ public class EmployeeOutput {
     private String phoneNumber;
     private Double salary;
     private String position;
+    private DepartmentOutput department;
 
 }
