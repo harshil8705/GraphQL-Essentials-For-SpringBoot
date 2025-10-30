@@ -38,7 +38,6 @@ public class EmployeeServiceImpl implements EmployeeService{
                 .build();
         department.getEmployees().add(newEmployee);
 
-//        departmentRepository.save(department);
         newEmployee = employeeRepository.save(newEmployee);
 
         return employeeBuilder.buildEmployeeOutputFromEmployee(newEmployee);
@@ -118,6 +117,8 @@ public class EmployeeServiceImpl implements EmployeeService{
         }
 
         employee.setDepartment(destinationDepartment);
+        destinationDepartment.getEmployees().add(employee);
+        sourceDepartment.getEmployees().remove(employee);
 
         employee = employeeRepository.save(employee);
 
