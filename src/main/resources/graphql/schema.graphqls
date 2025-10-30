@@ -19,17 +19,17 @@
 #}
 
 input DepartmentInput {
-    departmentName: String
-    departmentCode: String
+    departmentName: String!
+    departmentCode: String!
 }
 
 input EmployeeInput {
-    firstName: String
-    lastName: String
-    email: String
-    phoneNumber: String
-    salary: String
-    position: String
+    firstName: String!
+    lastName: String!
+    email: String!
+    phoneNumber: String!
+    salary: Float!
+    position: String!
 }
 
 type DepartmentOutput {

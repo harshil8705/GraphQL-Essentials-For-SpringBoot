@@ -38,7 +38,7 @@ public class EmployeeServiceImpl implements EmployeeService{
                 .build();
         department.getEmployees().add(newEmployee);
 
-        departmentRepository.save(department);
+//        departmentRepository.save(department);
         newEmployee = employeeRepository.save(newEmployee);
 
         return employeeBuilder.buildEmployeeOutputFromEmployee(newEmployee);
@@ -117,9 +117,7 @@ public class EmployeeServiceImpl implements EmployeeService{
             throw new RuntimeException("Source and Destination Departments can't be same!!");
         }
 
-        sourceDepartment.getEmployees().remove(employee);
         employee.setDepartment(destinationDepartment);
-        destinationDepartment.getEmployees().add(employee);
 
         employee = employeeRepository.save(employee);
 
