@@ -8,6 +8,7 @@ import com.graphql.gateway.repository.EmployeeRepository;
 import com.graphql.gateway.util.EmployeeBuilder;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -60,6 +61,7 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
+    @Cacheable(cacheNames = "employees", key = "#departmentId")
     public List<EmployeeOutput> getAllEmployeesByDepartment(Long departmentId) {
 
         Department department = departmentRepository.findById(departmentId)

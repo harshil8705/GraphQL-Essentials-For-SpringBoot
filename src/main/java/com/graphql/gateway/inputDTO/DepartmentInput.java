@@ -2,8 +2,6 @@ package com.graphql.gateway.inputDTO;
 
 import lombok.*;
 
-import java.time.LocalDateTime;
-
 @Data
 @Builder
 @NoArgsConstructor
